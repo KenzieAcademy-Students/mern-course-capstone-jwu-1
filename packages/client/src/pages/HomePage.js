@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
@@ -6,7 +5,6 @@ import Button from "react-bootstrap/Button"
 import { useApiFetch } from "util/api"
 import LoadingSpinner from 'components/LoadingSpinner'
 import { FaExclamationCircle } from 'react-icons/fa'
-import "../index.css"
 import "./Homepage.css" 
 
 export default function HomePage(props) {
