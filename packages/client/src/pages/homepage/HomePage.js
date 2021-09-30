@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
@@ -5,23 +6,22 @@ import Button from "react-bootstrap/Button"
 import { useApiFetch } from "util/api"
 import LoadingSpinner from 'components/LoadingSpinner'
 import { FaExclamationCircle } from 'react-icons/fa'
-import { useProvideStyle } from 'hooks/useStyle'
+import { useStyle } from 'hooks/useStyle'
 import "./HomePage.css" 
 import { useProvideUser } from 'hooks/globalStates'
 import image from "./profile.jpg";
-const axios = require('axios');
+
 export default function HomePage(props) {
+  const axios = require('axios');
   const { error, isLoading, response } = useApiFetch("/sample");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState(0);
-  const colorScheme = useProvideStyle();
+  const { state, userReducer} = useProvideUser()
+  const colorScheme = useStyle();
 
-  console.log(colorScheme)
+  document.body.setAttribute("id", colorScheme.style)
 
-  //Sets color Scheme of body
-  document.body.setAttribute("id", colorScheme.getStyle())
-  
   function validateForm() {
     return username.length > 0 && password.length > 0;
   }
@@ -35,6 +35,7 @@ export default function HomePage(props) {
         if (res.data.valid === true) {
           userReducer(state,{type: "CHANGE_USER", info: res.data.user})
           setLoginStatus(2);
+
         } else {
           setLoginStatus(1);
         }
@@ -51,14 +52,13 @@ export default function HomePage(props) {
     
      console.log(state)
   }
-  
-  //Changes color scheme of page when selected
+
   function setColor(color){
     console.log(color.target.value)
     colorScheme.setNewStyle(color.target.value)
     document.body.id = colorScheme.getStyle()
   }
-  
+
   return (
     <main>
       <h1>
@@ -87,6 +87,7 @@ export default function HomePage(props) {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
+
             <Button
               block
               size="lg"
@@ -101,7 +102,7 @@ export default function HomePage(props) {
               block
               size="lg"
               type="submit"
-              className="button"
+              class="login"
               disabled={!validateForm()}
             >
               Login
