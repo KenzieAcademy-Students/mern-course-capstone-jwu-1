@@ -6,6 +6,38 @@
     padding-right: 90%
 }
 
-.characterPage {
-    margin-right: 40%
+.characterButton {
+    background-color: white;
+    border-radius: 0px;
+    border: 1px black solid;
+    height: 50px;
+    width: 100px;
+    margin-right: 40%;
+    margin-top: 10px;
+    padding: 0px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    font-size: 20px;
+}
+
+.createButton {
+    padding: 0px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 0%;
+    background-color: rgb(247, 241, 241);
+    height: 20px;
+    font-size: 15px;
+    border: 1px solid rgb(179, 172, 172);
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.textarea {
+    height: 50px
+}
+
+.desLabel {
+    position: relative;
+    top: -30px
 }

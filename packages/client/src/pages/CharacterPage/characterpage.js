@@ -1,4 +1,5 @@
 
+// import Create from "pages/CreateCharacter/create";
 import React from "react";
 import "./characterpage.css"
 import scorpion from "./images/scorpion.jpg"
@@ -11,8 +12,13 @@ export default function CharacterPage() {
         // alert("Selected Character " + characterText)
     }
 
+    // function onSubmit(fields) {
+    //     console.log("Character Page got: ", fields)
+    // }
+
     return (
         <main>
+            {/* <Create onSubmit={fields => this.onSubmit(fields)}  /> */}
             <div class="log">
                 <button class="logout" onClick={() => window.location.replace("/")}>Logout</button>
                 <button class="back">Back to List</button>
